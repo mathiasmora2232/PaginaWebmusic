@@ -1,15 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ConciertosAhora — Eventos y Venta de Boletos</title>
+  <link rel="stylesheet" href="css/nav.css" />
 </head>
 <body>
-    <nav class="nav">
-        <ul>
-            <li>Inicio</li>
-        </ul>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">ConciertosAhora</h1>
+      <nav class="nav">
+        <a href="#events">Eventos</a>
+        <a href="#how">Cómo funciona</a>
+        <a href="#organizer" class="btn-outline">Organizadores</a>
+        <a href="#cta" class="btn">Crear evento</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h2>Descubre conciertos cerca de ti. Compra entradas al instante.</h2>
+          <p>Plataforma para promotores, salas y fans. Gestión de eventos, venta segura y tickets con QR.</p>
+          <div class="cta-row">
+            <a href="#events" class="btn">Ver eventos</a>
+            <a href="#organizer" class="btn-outline">Soy organizador</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Próximos en tu ciudad</h3>
+          <ul class="mini-events">
+            <li>
+              <strong>Festival Luna</strong>
+              <span>12 dic · Arena Central</span>
+            </li>
+            <li>
+              <strong>Rock Nómada</strong>
+              <span>18 dic · Sala Sol</span>
+            </li>
+            <li>
+              <strong>Electro Night</strong>
+              <span>24 dic · Club Metro</span>
+            </li>
+          </ul>
+          <a href="#events" class="link">Ver más eventos →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="container section">
+      <h2>Eventos destacados</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-img" style="background: linear-gradient(135deg,#ff7a7a,#ffb86b)"></div>
+          <div class="card-body">
+            <h3>Festival Luna</h3>
+            <p>12 dic · Arena Central · Desde $25</p>
+            <div class="card-actions">
+              <a href="#" class="btn-small">Comprar</a>
+              <a href="#" class="btn-link">Detalles</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img" style="background: linear-gradient(135deg,#7ad1ff,#7ae7c7)"></div>
+          <div class="card-body">
+            <h3>Rock Nómada</h3>
+            <p>18 dic · Sala Sol · Desde $18</p>
+            <div class="card-actions">
+              <a href="#" class="btn-small">Comprar</a>
+              <a href="#" class="btn-link">Detalles</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img" style="background: linear-gradient(135deg,#c27bff,#ff7bd1)"></div>
+          <div class="card-body">
+            <h3>Electro Night</h3>
+            <p>24 dic · Club Metro · Desde $15</p>
+            <div class="card-actions">
+              <a href="#" class="btn-small">Comprar</a>
+              <a href="#" class="btn-link">Detalles</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section alt">
+      <div class="container">
+        <h2>Cómo funciona</h2>
+        <div class="features">
+          <div class="feature">
+            <h4>Crear evento</h4>
+            <p>Organizadores crean su evento con fechas, capacidad y tarifas.</p>
+          </div>
+          <div class="feature">
+            <h4>Venta segura</h4>
+            <p>Pagos con tarjeta y emisión automática de tickets con QR.</p>
+          </div>
+          <div class="feature">
+            <h4>Control en puerta</h4>
+            <p>Escaneo de QR para validar entradas y evitar fraudes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="organizer" class="container section">
+      <h2>Para organizadores</h2>
+      <p>Crea eventos, gestiona entradas y consulta ventas desde un panel sencillo. Planes gratuitos y premium.</p>
+      <div class="cta-row">
+        <a href="#cta" class="btn">Empieza gratis</a>
+        <a href="#" class="btn-outline">Ver precios</a>
+      </div>
+    </section>
+
+    <section id="cta" class="section cta">
+      <div class="container">
+        <h2>Listo para lanzar tu próximo evento?</h2>
+        <p>Regístrate, crea tu evento y empieza a vender en minutos.</p>
+        <a href="#" class="btn">Crear evento</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 ConciertosAhora</div>
+      <div class="foot-links">
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle simple menu (mobile)
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
+  </script>
 </body>
 </html>
