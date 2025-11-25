@@ -11,7 +11,7 @@
     <div class="container">
       <h1 class="logo">ConciertosAhora</h1>
       <nav class="nav">
-        <a href="#events">Eventos</a>
+        <a href="events.html" class="btn-outline">Eventos</a>
         <a href="#how">Cómo funciona</a>
         <a href="#organizer" class="btn-outline">Organizadores</a>
         <a href="#cta" class="btn">Crear evento</a>
@@ -19,6 +19,14 @@
       <button class="menu-toggle" aria-label="Abrir menú">☰</button>
     </div>
   </header>
+  <section class="banner-rotator" aria-label="Promociones destacadas">
+    <div class="banner-track">
+      <img src="img/11NOV-banner_1519x600--985x430.jpg" alt="Promo noviembre" class="active" />
+      <img src="img/AFRODISE_banner_1519x600-985x430.jpg" alt="Afrodise Festival" />
+      <img src="img/Banner-home-web-RH-985x430.jpg" alt="Rock Hits" />
+      <img src="img/8bbade14-7c9b-41a6-9f65-cb9c1577f7ed.jpeg" alt="Destacado especial" />
+    </div>
+  </section>
 
   <main>
     <section class="hero">
@@ -27,7 +35,7 @@
           <h2>Descubre conciertos cerca de ti. Compra entradas al instante.</h2>
           <p>Plataforma para promotores, salas y fans. Gestión de eventos, venta segura y tickets con QR.</p>
           <div class="cta-row">
-            <a href="#events" class="btn">Ver eventos</a>
+            <a href="events.html" class="btn">Ver eventos</a>
             <a href="#organizer" class="btn-outline">Soy organizador</a>
           </div>
         </div>
@@ -47,7 +55,7 @@
               <span>24 dic · Club Metro</span>
             </li>
           </ul>
-          <a href="#events" class="link">Ver más eventos →</a>
+          <a href="events.html" class="link">Ver más eventos →</a>
         </div>
       </div>
     </section>
@@ -56,37 +64,37 @@
       <h2>Eventos destacados</h2>
       <div class="grid">
         <article class="card">
-          <div class="card-img" style="background: linear-gradient(135deg,#ff7a7a,#ffb86b)"></div>
+          <div class="card-img thumb-luna"></div>
           <div class="card-body">
             <h3>Festival Luna</h3>
             <p>12 dic · Arena Central · Desde $25</p>
             <div class="card-actions">
-              <a href="#" class="btn-small">Comprar</a>
-              <a href="#" class="btn-link">Detalles</a>
+              <a href="event.html?id=festival-luna" class="btn-small">Comprar</a>
+              <a href="event.html?id=festival-luna" class="btn-link">Detalles</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-img" style="background: linear-gradient(135deg,#7ad1ff,#7ae7c7)"></div>
+          <div class="card-img thumb-rock"></div>
           <div class="card-body">
             <h3>Rock Nómada</h3>
             <p>18 dic · Sala Sol · Desde $18</p>
             <div class="card-actions">
-              <a href="#" class="btn-small">Comprar</a>
-              <a href="#" class="btn-link">Detalles</a>
+              <a href="event.html?id=rock-nomada" class="btn-small">Comprar</a>
+              <a href="event.html?id=rock-nomada" class="btn-link">Detalles</a>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-img" style="background: linear-gradient(135deg,#c27bff,#ff7bd1)"></div>
+          <div class="card-img thumb-electro"></div>
           <div class="card-body">
             <h3>Electro Night</h3>
             <p>24 dic · Club Metro · Desde $15</p>
             <div class="card-actions">
-              <a href="#" class="btn-small">Comprar</a>
-              <a href="#" class="btn-link">Detalles</a>
+              <a href="event.html?id=electro-night" class="btn-small">Comprar</a>
+              <a href="event.html?id=electro-night" class="btn-link">Detalles</a>
             </div>
           </div>
         </article>
@@ -148,5 +156,6 @@
     const nav = document.querySelector('.nav');
     btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
   </script>
+  <script src="js/banner.js"></script>
 </body>
 </html>

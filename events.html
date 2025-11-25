@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eventos | ConciertosAhora</title>
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/events.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">ConciertosAhora</h1>
+      <nav class="nav">
+        <a href="index.html">Inicio</a>
+        <a href="events.html" class="btn-outline">Eventos</a>
+        <a href="index.html#organizer">Organizadores</a>
+        <a href="index.html#cta" class="btn">Crear evento</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h2>Todos los eventos disponibles</h2>
+          <p>Explora el calendario completo: filtra por fecha, género o ciudad y compra tus entradas.</p>
+          <div class="cta-row">
+            <a href="#list" class="btn">Ver listado</a>
+            <a href="index.html#cta" class="btn-outline">Publicar evento</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Filtros rápidos</h3>
+          <ul class="mini-events">
+            <li><strong>Hoy</strong><span>Ver</span></li>
+            <li><strong>Esta semana</strong><span>Ver</span></li>
+            <li><strong>Pop / Rock</strong><span>Ver</span></li>
+          </ul>
+          <a href="#list" class="link">Ir al listado →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="list" class="container section">
+      <h2>Próximos eventos</h2>
+      <div class="grid" data-events-grid>
+        <div class="loading">Cargando eventos...</div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>¿Eres organizador?</h2>
+        <p>Publica tu evento y empieza a vender entradas hoy mismo.</p>
+        <a href="index.html#cta" class="btn">Crear evento</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© 2025 ConciertosAhora</div>
+      <div class="foot-links">
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+  <script src="js/events.js"></script>
+</body>
+</html>

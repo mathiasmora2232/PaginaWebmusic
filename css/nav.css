@@ -16,6 +16,7 @@ body {
   background: linear-gradient(180deg, #071025 0%, #081428 100%);
   color: #e6eef6;
   line-height: 1.4;
+  padding-top: 80px; /* espacio para header absolute */
 }
 
 /* =Layout */
@@ -27,10 +28,15 @@ body {
 
 /* =Header / Nav */
 .site-header {
-  background: transparent;
-  position: sticky;
+  position: fixed; /* permanece visible al hacer scroll */
   top: 0;
-  z-index: 20;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(15,23,36,0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .site-header .container {
@@ -223,3 +229,14 @@ body {
   .grid { grid-template-columns: 1fr; }
   .features { flex-direction: column; }
 }
+
+/* =Banner Rotator */
+.banner-rotator { position: relative; width: calc(100% - 200px); margin: 50px auto 0; overflow: hidden; }
+.banner-track { position: relative; display: grid; }
+.banner-rotator img { width: 100%; height: 430px; object-fit: cover; opacity: 0; transition: opacity .7s ease; grid-area: 1/1; }
+.banner-rotator img.active { opacity: 1; }
+@media (max-width:900px){
+  .banner-rotator { width:100%; }
+  .banner-rotator img { height: 260px; }
+}
+
