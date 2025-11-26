@@ -16,7 +16,7 @@
         return;
       }
       const thumb = ev.thumbImage
-        ? `<div class=\"event-thumb\" style=\"background:url('${ev.thumbImage}') center/cover no-repeat\"></div>`
+        ? `<div class=\"event-thumb\"><img src=\"${ev.thumbImage}\" alt=\"${ev.title}\"/></div>`
         : `<div class=\"event-thumb card-img ${ev.thumbClass || ''}\"></div>`;
       const seatMap = ev.seatMapImage
         ? `<div class=\"seat-map\"><h3>Mapa de localidades</h3><img src=\"${ev.seatMapImage}\" alt=\"Mapa de localidades ${ev.title}\"/></div>`
