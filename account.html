@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Cuenta — ConciertosAhora</title>
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/events.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">ConciertosAhora</h1>
+      <nav class="nav">
+        <a href="index.html" class="btn-outline">Inicio</a>
+        <a href="events.html" class="btn-outline">Eventos</a>
+        <a href="auth.html" class="btn">Acceso</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h2>Mis compras</h2>
+    <table class="feature">
+      <thead>
+        <tr><th>Orden</th><th>Evento</th><th>Cantidad</th><th>Total</th><th>Estado</th></tr>
+      </thead>
+      <tbody id="orders-body"></tbody>
+    </table>
+
+    <h2>Mis tickets</h2>
+    <div id="tickets-container" class="features"></div>
+
+    <h2>QR de validación</h2>
+    <div id="qr-container" class="feature"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 ConciertosAhora</div>
+  </footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+  <script src="js/account.js"></script>
+</body>
+</html>

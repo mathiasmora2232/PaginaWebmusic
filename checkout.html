@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — ConciertosAhora</title>
+  <link rel="stylesheet" href="css/nav.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">ConciertosAhora</h1>
+      <nav class="nav">
+        <a href="index.html" class="btn-outline">Inicio</a>
+        <a href="events.html" class="btn-outline">Eventos</a>
+        <a href="account.html" class="btn">Mi cuenta</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h2>Resumen</h2>
+    <div class="feature">
+      <p>Evento: <span id="checkout-event-name"></span></p>
+      <p>Cantidad: <span id="checkout-qty"></span></p>
+      <p>Total: <span id="checkout-total"></span></p>
+      <div class="card-actions"><button id="btn-submit-order" class="btn">Confirmar compra</button></div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container">© 2025 ConciertosAhora</div></footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
