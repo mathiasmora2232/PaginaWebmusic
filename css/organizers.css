@@ -1,0 +1,11 @@
+/* Base layout organizadores */
+.container { max-width:1100px; margin:0 auto; padding:24px; }
+.section { padding:36px 0; }
+.alt { background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); }
+.site-footer { border-top:1px solid rgba(255,255,255,0.03); padding:18px 0; margin-top:24px; color:var(--muted); }
+.foot-links a { color: var(--muted); text-decoration:none; margin-left:12px; }
+/* Estilos específicos de Organizadores */
+.section.alt { background: rgba(255,255,255,0.03); }
+.features { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.feature { padding: 16px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
+.cta-row { display: flex; gap: 12px; }

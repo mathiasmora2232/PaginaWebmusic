@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Organizadores — ConciertosAhora</title>
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/organizers.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">ConciertosAhora</h1>
+      <nav class="nav">
+        <a href="events.html" class="btn-outline">Eventos</a>
+        <a href="organizers.html" class="btn-outline">Organizadores</a>
+        <a href="#como-funciona" class="btn-outline">Cómo funciona</a>
+        <a href="create-event.html" class="btn">Crear evento</a>
+        <a href="account.html" class="btn-outline">Mi cuenta</a>
+        <a href="tickets.html" class="btn-outline">Mis tickets</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section alt">
+      <div class="container">
+        <h2>¿Quieres ser organizador?</h2>
+        <div class="features">
+          <div class="feature">
+            <h4>Requisitos</h4>
+            <p>Datos fiscales, cuenta bancaria para liquidaciones y verificación básica.</p>
+          </div>
+          <div class="feature">
+            <h4>Comisiones</h4>
+            <p>Modelo transparente por ticket vendido. Sin costo fijo por evento.</p>
+          </div>
+          <div class="feature">
+            <h4>Herramientas</h4>
+            <p>Gestión de aforo, tipos de ticket, mapa de localidades y reportes.</p>
+          </div>
+        </div>
+          <div class="cta-row mt-16">
+          <a href="create-event.html" class="btn">Crear tu primer evento</a>
+          <a href="auth.html" class="btn-outline">Solicitar verificación</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <h2>Guía rápida</h2>
+      <ul>
+        <li>Publica: nombre, fecha, recinto y capacidad.</li>
+        <li>Define tickets: general, VIP, numerados.</li>
+        <li>Comparte tu enlace: empieza a vender.</li>
+        <li>Control en puerta: valida QR con móvil.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container">© 2025 ConciertosAhora</div></footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+</body>
+</html>

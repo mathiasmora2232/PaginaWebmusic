@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crear Evento — ConciertosAhora</title>
+  <link rel="stylesheet" href="css/nav.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">ConciertosAhora</h1>
+      <nav class="nav">
+        <a href="index.html" class="btn-outline">Inicio</a>
+        <a href="events.html" class="btn-outline">Eventos</a>
+        <a href="organizers.html" class="btn-outline">Organizadores</a>
+        <a href="create-event.html" class="btn">Crear evento</a>
+        <a href="account.html" class="btn-outline">Mi cuenta</a>
+        <a href="tickets.html" class="btn-outline">Mis tickets</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h2>Publica tu evento</h2>
+    <form id="create-event-form" class="feature">
+      <label>Nombre del evento<br><input id="ev-title" type="text" required /></label>
+      <label>Fecha<br><input id="ev-date" type="date" required /></label>
+      <label>Recinto<br><input id="ev-venue" type="text" required /></label>
+      <label>Ciudad<br><input id="ev-city" type="text" /></label>
+      <label>Capacidad<br><input id="ev-capacity" type="number" min="0" /></label>
+      <label>Descripción<br><textarea id="ev-description"></textarea></label>
+      <label>Imagen (URL)<br><input id="ev-thumb" type="url" placeholder="https://..." /></label>
+      <div class="card-actions"><button type="submit" class="btn">Guardar</button></div>
+    </form>
+    <p class="muted">Este formulario guarda el evento en el JSON local (LocalStorage) para pruebas.</p>
+  </main>
+
+  <footer class="site-footer"><div class="container">© 2025 ConciertosAhora</div></footer>
+
+  <script>
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+  <script src="js/storage.js"></script>
+  <script>
+    document.getElementById('create-event-form')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const ev = {
+        id: (document.getElementById('ev-title').value || '').toLowerCase().replace(/\s+/g,'-'),
+        title: document.getElementById('ev-title').value,
+        date: document.getElementById('ev-date').value,
+        displayDate: new Date(document.getElementById('ev-date').value).toLocaleDateString('es-ES', { day:'2-digit', month:'short'}),
+        venue: document.getElementById('ev-venue').value,
+        city: document.getElementById('ev-city').value,
+        priceFrom: 0,
+        thumbImage: document.getElementById('ev-thumb').value,
+        genres: [],
+        description: document.getElementById('ev-description').value,
+        ticketsLink: '#'
+      };
+      const override = getStorage('events_override') || [];
+      override.push(ev);
+      setStorage('events_override', override);
+      alert('Evento guardado en LocalStorage. Abre events.html para ver el listado.');
+    });
+  </script>
+</body>
+</html>

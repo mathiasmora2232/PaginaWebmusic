@@ -1,0 +1,7 @@
+/* Base layout auth */
+.container { max-width:1100px; margin:0 auto; padding:24px; }
+.site-footer { border-top:1px solid rgba(255,255,255,0.03); padding:18px 0; margin-top:24px; color:var(--muted); }
+.foot-links a { color: var(--muted); text-decoration:none; margin-left:12px; }
+/* Estilos específicos de autenticación */
+.section { padding: 24px 0; }
+.auth-card { max-width: 420px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; }

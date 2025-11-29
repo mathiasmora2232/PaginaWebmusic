@@ -1,0 +1,30 @@
+/* Estilos específicos de la página Inicio */
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+.section { padding: 36px 0; }
+.alt { background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); }
+.hero { padding: 56px 0; }
+.hero-inner { display: flex; gap: 28px; align-items: stretch; }
+.hero h2 { font-size: 28px; margin: 0 0 12px; }
+.hero p { color: var(--muted); margin: 0 0 18px; }
+.hero-card { background: var(--glass); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); min-width: 260px; }
+.mini-events { list-style: none; padding: 0; margin: 8px 0 12px; }
+.mini-events li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.02); color: var(--muted); }
+.link { color: #cfeefd; text-decoration: none; font-size: 14px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 18px; }
+.card { background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.03); }
+.card-img { height: 120px; background-size: cover; background-position: center; }
+.card-img img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.card-body { padding: 12px; }
+.card-actions { display:flex; gap:8px; margin-top:10px; }
+.features { display:flex; gap:18px; margin-top:18px; }
+.feature { background: transparent; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.02); flex:1; }
+.cta { padding:36px 0; text-align:center; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0)); }
+.banner-rotator { position: relative; width: calc(100% - 200px); margin: 50px auto 0; overflow: hidden; }
+.banner-track { position: relative; display: grid; }
+.banner-rotator img { width:100%; height:430px; object-fit:cover; opacity:0; transition: opacity .7s ease; grid-area:1/1; }
+.banner-rotator img.active { opacity:1; }
+.site-footer { border-top:1px solid rgba(255,255,255,0.03); padding:18px 0; margin-top:24px; color:var(--muted); }
+.foot-links a { color: var(--muted); text-decoration:none; margin-left:12px; }
+.mt-16 { margin-top:16px; }
+@media (max-width:900px){ .hero-inner { flex-direction:column; } .grid { grid-template-columns:repeat(2,1fr); } .banner-rotator { width:100%; } .banner-rotator img { height:260px; } }
+@media (max-width:640px){ .grid { grid-template-columns:1fr; } .features { flex-direction:column; } }
