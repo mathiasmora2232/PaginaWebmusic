@@ -18,7 +18,8 @@
         const iframe = document.createElement('iframe');
         iframe.setAttribute('title','Ubicación del evento');
         iframe.width = '100%';
-        iframe.height = '300';
+        // Altura controlada por CSS para alinear con el panel izquierdo
+        iframe.style.height = '100%';
         iframe.style.border = '0';
         iframe.loading = 'lazy';
         iframe.referrerPolicy = 'no-referrer-when-downgrade';
