@@ -1,8 +1,27 @@
 /* Base layout crear evento */
-.container { max-width:1100px; margin:0 auto; padding:24px; }
-.site-footer { border-top:1px solid rgba(255,255,255,0.03); padding:18px 0; margin-top:24px; color:var(--muted); }
-.foot-links a { color: var(--muted); text-decoration:none; margin-left:12px; }
-/* Estilos específicos de Crear evento */
-.section { padding: 24px 0; }
-.feature label { display: block; margin-bottom: 12px; }
-.feature input, .feature textarea { width: 100%; }
+.container { 
+    max-width:1100px; 
+    margin:0 auto; 
+    padding:24px; 
+}
+.site-footer { border-top:1px solid 
+    rgba(255,255,255,0.03); 
+    padding:18px 0; 
+    margin-top:24px; 
+    color:var(--muted);
+ }
+.foot-links a { 
+    color: var(--muted); 
+    text-decoration:none; 
+    margin-left:12px; 
+}
+.section { 
+    padding: 24px 0; 
+}
+.feature label { 
+    display: block; 
+    margin-bottom: 12px; 
+}
+.feature input, .feature textarea { 
+    width: 100%; 
+}
