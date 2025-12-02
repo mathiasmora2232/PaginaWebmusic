@@ -6,7 +6,7 @@
     .then(events=>{
       grid.innerHTML = events.map(ev => {
         const imgDiv = ev.thumbImage
-          ? `<div class=\"card-img\"><img src=\"${ev.thumbImage}\" alt=\"${ev.title}\"/></div>`
+          ? `<div class=\"card-img poster\"><img src=\"${ev.thumbImage}\" alt=\"${ev.title}\"/></div>`
           : `<div class=\"card-img ${ev.thumbClass || ''}\"></div>`;
         return `
         <article class=\"card\" data-id=\"${ev.id}\">
