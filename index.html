@@ -33,6 +33,7 @@
 
   <main>
     <section class="hero">
+      <div class="hero-glow"></div>
       <div class="container hero-inner">
         <div>
           <h2>Descubre conciertos cerca de ti. Compra entradas al instante.</h2>
@@ -40,6 +41,15 @@
           <div class="cta-row">
             <a href="events.html" class="btn">Ver eventos</a>
             <a href="#organizer" class="btn-outline">Soy organizador</a>
+          </div>
+
+          <div class="trust-row">
+            <span class="pill">Sin costos fijos</span>
+            <span class="pill">Pagos seguros</span>
+            <span class="pill">Soporte 24/7</span>
+            <span class="stars" aria-label="Calificación 4.9 de 5">
+              ★★★★★ <em>4.9/5</em>
+            </span>
           </div>
         </div>
         <div class="hero-card">
@@ -63,11 +73,23 @@
       </div>
     </section>
 
+    <section class="logo-strip" aria-label="Marcas que confían">
+      <div class="container logos">
+        <span class="logo-pill">SoundWave</span>
+        <span class="logo-pill">LiveHouse</span>
+        <span class="logo-pill">MetroClub</span>
+        <span class="logo-pill">ArenaPlus</span>
+        <span class="logo-pill">IndieFest</span>
+      </div>
+    </section>
+
     <section id="events" class="container section">
       <h2>Eventos destacados</h2>
       <div class="grid">
         <article class="card">
-          <div class="card-img thumb-luna"></div>
+          <div class="card-img thumb-luna">
+            <span class="badge accent">Nuevo</span>
+          </div>
           <div class="card-body">
             <h3>Festival Luna</h3>
             <p>12 dic · Arena Central · Desde $25</p>
@@ -79,7 +101,9 @@
         </article>
 
         <article class="card">
-          <div class="card-img thumb-rock"></div>
+          <div class="card-img thumb-rock">
+            <span class="badge">Se agota</span>
+          </div>
           <div class="card-body">
             <h3>Rock Nómada</h3>
             <p>18 dic · Sala Sol · Desde $18</p>
@@ -91,7 +115,9 @@
         </article>
 
         <article class="card">
-          <div class="card-img thumb-electro"></div>
+          <div class="card-img thumb-electro">
+            <span class="badge">Últimos cupos</span>
+          </div>
           <div class="card-body">
             <h3>Electro Night</h3>
             <p>24 dic · Club Metro · Desde $15</p>
@@ -126,10 +152,45 @@
 
     <section id="organizer" class="container section">
       <h2>Para organizadores</h2>
-      <p>Crea eventos, gestiona entradas y consulta ventas desde un panel sencillo. Planes gratuitos y premium.</p>
+      <p class="lead">Publica tu evento en minutos, activa la venta de tickets y controla el acceso con QR. Soporte y reportes incluidos.</p>
+
+      <div class="organizers-grid">
+        <article class="feature">
+          <h4>🎟️ Tipos de ticket</h4>
+          <p>General, VIP, numerados y combos. Tarifas por tramo y cupos por sector.</p>
+        </article>
+        <article class="feature">
+          <h4>🗺️ Mapa de localidades</h4>
+          <p>Sube tu imagen de sectores y muestra disponibilidad de forma clara.</p>
+        </article>
+        <article class="feature">
+          <h4>💳 Pagos y liquidación</h4>
+          <p>Pagos con tarjeta y transferencias. Liquidaciones programadas y comprobantes.</p>
+        </article>
+        <article class="feature">
+          <h4>📈 Reportes en tiempo real</h4>
+          <p>Ventas por canal, top compradores, conversión y proyección de aforo.</p>
+        </article>
+        <article class="feature">
+          <h4>🔐 Control en puerta</h4>
+          <p>App de validación con QR, listas de acceso y detección de duplicados.</p>
+        </article>
+        <article class="feature">
+          <h4>🤝 Soporte dedicado</h4>
+          <p>Acompañamiento en preventa y día del evento. Material de difusión.</p>
+        </article>
+      </div>
+
+
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div><h5>Publica tu evento</h5><p>Crea fecha, recinto y aforo. Sube tu afiche.</p></div></div>
+        <div class="step"><span class="num">2</span><div><h5>Activa ventas</h5><p>Define tipos de ticket y comparte el enlace.</p></div></div>
+        <div class="step"><span class="num">3</span><div><h5>Controla el acceso</h5><p>Valida entradas con QR y descarga reportes.</p></div></div>
+      </div>
+
       <div class="cta-row">
-        <a href="#cta" class="btn">Empieza gratis</a>
-        <a href="#" class="btn-outline">Ver precios</a>
+        <a href="create-event.html" class="btn">Crear mi evento</a>
+        <a href="organizers.html" class="btn-outline">Ver guía para organizadores</a>
       </div>
     </section>
 
@@ -158,6 +219,33 @@
     const btn = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
     btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
+
+    // Contadores animados para stats (aparecen al hacer scroll)
+    const stats = document.querySelectorAll('.stat-card');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const target = parseFloat(el.getAttribute('data-target'));
+          if (!target || el.dataset.done) return;
+          el.dataset.done = '1';
+          const strong = el.querySelector('strong');
+          const isPercent = strong.textContent.includes('%');
+          const isPlus = strong.textContent.includes('+');
+          const end = target;
+          let cur = 0;
+          const step = () => {
+            cur += Math.max(1, end / 40);
+            if (cur >= end) cur = end;
+            strong.textContent = `${isPlus?'+':''}${isPercent?cur.toFixed(1):Math.floor(cur)}${isPercent?'%':''}`;
+            if (cur < end) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          obs.unobserve(el);
+        }
+      })
+    }, { threshold: 0.3 });
+    stats.forEach(s => obs.observe(s));
   </script>
   <script src="js/banner.js"></script>
 </body>

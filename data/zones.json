@@ -1,0 +1,26 @@
+{
+  "default": [
+    { "id": "general", "name": "General", "price": 49, "capacity": 3000 },
+    { "id": "preferencia", "name": "Preferencia", "price": 74, "capacity": 1500 },
+    { "id": "tribuna", "name": "Tribuna", "price": 99, "capacity": 1200 },
+    { "id": "palco", "name": "Palco", "price": 179, "capacity": 200 },
+    { "id": "golden", "name": "Antología Golden", "price": 219, "capacity": 400 },
+    { "id": "platinum", "name": "Hips Don't Lie Platinum", "price": 259, "capacity": 300 },
+    { "id": "box", "name": "Las Mujeres Facturan Box", "price": 299, "capacity": 80 }
+  ],
+  "shakira-quito-2025": [
+    { "id": "general", "name": "General", "price": 49, "capacity": 4000 },
+    { "id": "preferencia", "name": "Preferencia", "price": 74, "capacity": 2000 },
+    { "id": "tribuna", "name": "Tribuna", "price": 99, "capacity": 1500 },
+    { "id": "palco", "name": "Palco", "price": 179, "capacity": 300 },
+    { "id": "golden", "name": "Golden", "price": 219, "capacity": 500 },
+    { "id": "platinum", "name": "Platinum", "price": 259, "capacity": 350 }
+  ],
+  "Bad Bunny": [
+    { "id": "general", "name": "General", "price": 60, "capacity": 5000 },
+    { "id": "preferencia", "name": "Preferencia", "price": 90, "capacity": 2500 },
+    { "id": "tribuna", "name": "Tribuna", "price": 120, "capacity": 2000 },
+    { "id": "palco", "name": "Palco", "price": 200, "capacity": 400 },
+    { "id": "vip", "name": "VIP", "price": 260, "capacity": 300 }
+  ]
+}
