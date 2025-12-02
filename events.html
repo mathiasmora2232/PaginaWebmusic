@@ -34,20 +34,21 @@
             <a href="index.html#cta" class="btn-outline">Publicar evento</a>
           </div>
         </div>
-        <div class="hero-card">
-          <h3>Filtros rápidos</h3>
-          <ul class="mini-events">
-            <li><strong>Hoy</strong><span>Ver</span></li>
-            <li><strong>Esta semana</strong><span>Ver</span></li>
-            <li><strong>Pop / Rock</strong><span>Ver</span></li>
-          </ul>
-          <a href="#list" class="link">Ir al listado →</a>
-        </div>
       </div>
     </section>
 
     <section id="list" class="container section">
       <h2>Próximos eventos</h2>
+      <div class="feature" id="filters">
+        <div class="filters-row">
+          <label>Buscar <input type="search" id="f-text" placeholder="Evento o lugar"/></label>
+          <label>Género
+            <select id="f-genre"><option value="">Todos</option><option>Rock</option><option>Pop</option><option>Electrónica</option><option>Indie</option><option>Jazz</option></select>
+          </label>
+          <label>Desde <input type="date" id="f-from"/></label>
+          <label>Hasta <input type="date" id="f-to"/></label>
+        </div>
+      </div>
       <div class="grid" data-events-grid>
         <div class="loading">Cargando eventos...</div>
       </div>
@@ -79,5 +80,50 @@
     btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
   </script>
   <script src="js/events.js"></script>
+  <script>
+    // Filtros simples conectados al render
+    (function(){
+      const grid = document.querySelector('[data-events-grid]');
+      const fText = document.getElementById('f-text');
+      const fGenre = document.getElementById('f-genre');
+      const fFrom = document.getElementById('f-from');
+      const fTo = document.getElementById('f-to');
+      let all = [];
+      const render = (list)=>{
+        grid.innerHTML = list.map(ev => {
+          const imgDiv = ev.thumbImage
+            ? `<div class=\"card-img poster\"><img src=\"${ev.thumbImage}\" alt=\"${ev.title}\"/></div>`
+            : `<div class=\"card-img ${ev.thumbClass || ''}\"></div>`;
+          return `
+          <article class=\"card\" data-id=\"${ev.id}\">\n            ${imgDiv}\n            <div class=\"card-body\">\n              <h3>${ev.title}</h3>\n              <p>${ev.displayDate} · ${ev.venue} · Desde $${ev.priceFrom}</p>\n              <div class=\"card-actions\">\n                  <a href=\"checkout.html?id=${ev.id}\" class=\"btn-small\">Comprar</a>\n                  <a href=\"event.html?id=${ev.id}\" class=\"btn-link\">Detalles</a>\n              </div>\n            </div>\n          </article>`;
+        }).join('');
+      };
+      function apply(){
+        const q = (fText.value||'').toLowerCase();
+        const g = fGenre.value;
+        const f = fFrom.value;
+        const t = fTo.value;
+        const inRange = (d)=> {
+          const dd = new Date(d);
+          return (!f || dd >= new Date(f)) && (!t || dd <= new Date(t));
+        };
+        const filtered = all.filter(ev =>
+          (!q || `${ev.title} ${ev.venue}`.toLowerCase().includes(q)) &&
+          (!g || (ev.genres||[]).includes(g)) && inRange(ev.date)
+        );
+        render(filtered);
+      }
+      Promise.resolve(fetch('data/events.json').then(r=>r.json())).then(events=>{
+        all = events;
+        render(all);
+      });
+      ['input','change'].forEach(evt => {
+        fText.addEventListener(evt, apply);
+        fGenre.addEventListener(evt, apply);
+        fFrom.addEventListener(evt, apply);
+        fTo.addEventListener(evt, apply);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -24,12 +24,40 @@
   </header>
 
   <main class="container section">
-    <h2>Resumen</h2>
-    <div class="feature">
-      <p>Evento: <span id="checkout-event-name"></span></p>
-      <p>Cantidad: <span id="checkout-qty"></span></p>
-      <p>Total: <span id="checkout-total"></span></p>
-      <div class="card-actions"><button id="btn-submit-order" class="btn">Confirmar compra</button></div>
+    <div class="checkout-grid">
+      <section class="summary">
+        <h2>Resumen</h2>
+        <p><strong>Evento:</strong> <span id="checkout-event-name"></span></p>
+        <div class="feature mt-12">
+          <label for="co-zone">Zona</label>
+          <select id="co-zone"></select>
+          <div class="card-actions mt-10">
+            <div class="qty-stepper">
+              <button class="btn-outline" id="co-minus" aria-label="Menos">−</button>
+              <span id="co-qty" class="qty">1</span>
+              <button class="btn-outline" id="co-plus" aria-label="Más">+</button>
+            </div>
+          </div>
+        </div>
+        <p class="mt-12"><strong>Total:</strong> <span id="checkout-total"></span></p>
+      </section>
+
+      <section class="summary">
+        <h2>Datos de pago</h2>
+        <div class="form-grid">
+          <label>Nombre completo<input id="co-name" type="text" placeholder="Nombre y apellido"/></label>
+          <label>Email<input id="co-email" type="email" placeholder="tu@correo.com"/></label>
+          <label>Documento<input id="co-doc" type="text" placeholder="DNI / ID"/></label>
+          <label>Número de tarjeta<input id="co-card" type="text" inputmode="numeric" placeholder="1234 5678 9012 3456"/></label>
+          <div class="row">
+            <label>Vencimiento<input id="co-exp" type="text" placeholder="MM/AA"/></label>
+            <label>CVC<input id="co-cvc" type="text" placeholder="123"/></label>
+          </div>
+        </div>
+        <div class="card-actions mt-12">
+          <button id="btn-submit-order" class="btn">Pagar ahora</button>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -41,5 +69,6 @@
     btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
   </script>
   <script src="js/cart.js"></script>
+  
 </body>
 </html>

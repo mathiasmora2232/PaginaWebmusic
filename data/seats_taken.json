@@ -1,0 +1,18 @@
+{
+  "shakira-quito-2025": {
+    "general": 320,
+    "preferencia": 180,
+    "tribuna": 90,
+    "palco": 45,
+    "golden": 120,
+    "platinum": 80
+  },
+  "Bad Bunny": {
+    "general": 1200,
+    "preferencia": 600,
+    "tribuna": 400,
+    "palco": 100,
+    "vip": 60
+  },
+  "default": {}
+}

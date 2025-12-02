@@ -15,8 +15,8 @@
             <h3>${ev.title}</h3>
             <p>${ev.displayDate} · ${ev.venue} · Desde $${ev.priceFrom}</p>
             <div class="card-actions">
-                <a href="event.html?id=${ev.id}" class="btn-small">Comprar</a>
-                <a href="event.html?id=${ev.id}" class="btn-link">Detalles</a>
+              <a href="checkout.html?id=${ev.id}" class="btn-small">Comprar</a>
+              <a href="event.html?id=${ev.id}" class="btn-link">Detalles</a>
             </div>
           </div>
         </article>`;
