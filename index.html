@@ -85,48 +85,8 @@
 
     <section id="events" class="container section">
       <h2>Eventos destacados</h2>
-      <div class="grid">
-        <article class="card">
-          <div class="card-img thumb-luna">
-            <span class="badge accent">Nuevo</span>
-          </div>
-          <div class="card-body">
-            <h3>Festival Luna</h3>
-            <p>12 dic · Arena Central · Desde $25</p>
-            <div class="card-actions">
-              <a href="event.html?id=festival-luna" class="btn-small">Comprar</a>
-              <a href="event.html?id=festival-luna" class="btn-link">Detalles</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img thumb-rock">
-            <span class="badge">Se agota</span>
-          </div>
-          <div class="card-body">
-            <h3>Rock Nómada</h3>
-            <p>18 dic · Sala Sol · Desde $18</p>
-            <div class="card-actions">
-              <a href="event.html?id=rock-nomada" class="btn-small">Comprar</a>
-              <a href="event.html?id=rock-nomada" class="btn-link">Detalles</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-img thumb-electro">
-            <span class="badge">Últimos cupos</span>
-          </div>
-          <div class="card-body">
-            <h3>Electro Night</h3>
-            <p>24 dic · Club Metro · Desde $15</p>
-            <div class="card-actions">
-              <a href="event.html?id=electro-night" class="btn-small">Comprar</a>
-              <a href="event.html?id=electro-night" class="btn-link">Detalles</a>
-            </div>
-          </div>
-        </article>
+      <div class="grid" data-index-events>
+        <div class="loading">Cargando eventos...</div>
       </div>
     </section>
 
@@ -248,5 +208,33 @@
     stats.forEach(s => obs.observe(s));
   </script>
   <script src="js/banner.js"></script>
+  <script>
+    // Render dinámico de eventos destacados desde data/events.json
+    (function(){
+      const grid = document.querySelector('[data-index-events]');
+      if(!grid) return;
+      fetch('data/events.json')
+        .then(r=>r.json())
+        .then(events=>{
+          // Ordenar por fecha ascendente y tomar los próximos 6
+          const upcoming = events
+            .filter(ev => ev.date)
+            .sort((a,b)=> new Date(a.date) - new Date(b.date))
+            .slice(0,3);
+          grid.innerHTML = upcoming.map(ev => {
+            const imgDiv = ev.thumbImage
+              ? `<div class=\"card-img poster\"><img src=\"${ev.thumbImage}\" alt=\"${ev.title}\"/></div>`
+              : `<div class=\"card-img ${ev.thumbClass || ''}\"></div>`;
+            const city = ev.city ? ` · ${ev.city}` : '';
+            return `
+            <article class=\"card\" data-id=\"${ev.id}\">\n              ${imgDiv}\n              <div class=\"card-body\">\n                <h3>${ev.title}</h3>\n                <p>${ev.displayDate} · ${ev.venue}${city} · Desde $${ev.priceFrom}</p>\n                <div class=\"card-actions\">\n                  <a href=\"checkout.html?id=${ev.id}\" class=\"btn-small\">Comprar</a>\n                  <a href=\"event.html?id=${ev.id}\" class=\"btn-link\">Detalles</a>\n                </div>\n              </div>\n            </article>`;
+          }).join('');
+        })
+        .catch(err=>{
+          console.error('Error cargando eventos en index', err);
+          grid.innerHTML = '<p class="muted">No se pudo cargar la lista de eventos.</p>';
+        });
+    })();
+  </script>
 </body>
 </html>
