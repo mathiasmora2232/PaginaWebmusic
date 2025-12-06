@@ -4,5 +4,11 @@
 .foot-links a { color: var(--muted); text-decoration:none; margin-left:12px; }
 /* Estilos específicos de Mis Tickets */
 .section { padding: 24px 0; }
-.features { display: grid; gap: 16px; }
-.feature { padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; }
+.features { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+.feature { padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
+.feature strong{ display:block; margin-bottom:6px }
+.feature .muted{ color: var(--muted) }
+.qr-grid{ display:grid; grid-template-columns: repeat(4, 110px); gap:12px; align-items:center }
+.qr-grid img{ width:110px; height:110px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); background:#fff }
+@media (max-width:900px){ .features{ grid-template-columns:1fr } .qr-grid{ grid-template-columns: repeat(3, 100px) } }
+@media (max-width:640px){ .qr-grid{ grid-template-columns: repeat(2, 100px) } }

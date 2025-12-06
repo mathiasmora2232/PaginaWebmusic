@@ -1,3 +1,21 @@
+/* Estilos oscuros y consistentes para el formulario de crear evento */
+.feature{ background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border:1px solid rgba(255,255,255,0.06); padding:16px; border-radius:12px }
+#create-event-form label{ display:flex; flex-direction:column; gap:6px; margin-top:12px; color:#cbd6e2 }
+#create-event-form input,
+#create-event-form textarea{
+    background: rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    color:#e6eef6;
+    border-radius:8px;
+    padding:10px;
+    height:40px;
+}
+#create-event-form textarea{ min-height:96px; height:auto }
+#create-event-form input:focus,
+#create-event-form textarea:focus{ outline:none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,107,107,0.18) }
+#create-event-form input[type="date"]{ color-scheme: dark }
+#create-event-form input[type="date"]::-webkit-calendar-picker-indicator{ filter: invert(1) opacity(.85); cursor:pointer }
+.card-actions{ display:flex; gap:10px; margin-top:12px }
 /* Base layout crear evento */
 .container { 
     max-width:1100px; 

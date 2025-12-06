@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Confirmación — ConciertosAhora</title>
+  <title>Confirmación de compra — ConciertosAhora</title>
   <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/checkout.css" />
 </head>
 <body>
   <header class="site-header">
@@ -13,9 +14,6 @@
       <nav class="nav">
         <a href="index.html" class="btn-outline">Inicio</a>
         <a href="events.html" class="btn-outline">Eventos</a>
-        <a href="organizers.html" class="btn-outline">Organizadores</a>
-        <a href="create-event.html" class="btn">Crear evento</a>
-        <a href="account.html" class="btn-outline">Mi cuenta</a>
         <a href="tickets.html" class="btn-outline">Mis tickets</a>
       </nav>
       <button class="menu-toggle" aria-label="Abrir menú">☰</button>
@@ -23,21 +21,39 @@
   </header>
 
   <main class="container section">
-    <h2>¡Compra confirmada!</h2>
-    <div class="feature">
-      <p>Orden: <span id="confirm-order-id"></span></p>
-      <p>Total: <span id="confirm-order-total"></span></p>
-      <p>Estado: <span id="confirm-order-status"></span></p>
-      <div id="confirm-order-qr" class="feature"></div>
-    </div>
+    <section class="summary">
+      <h2>¡Pago confirmado!</h2>
+      <p><strong>Orden:</strong> <span id="oc-order"></span></p>
+      <p><strong>Factura:</strong> <span id="oc-invoice"></span></p>
+      <p><strong>Evento:</strong> <span id="oc-event"></span></p>
+      <p><strong>Zona:</strong> <span id="oc-zone"></span></p>
+      <p><strong>Cantidad:</strong> <span id="oc-qty"></span></p>
+      <p><strong>Total:</strong> <span id="oc-total"></span></p>
+      <div class="card-actions mt-12">
+        <a href="tickets.html" class="btn">Ver mis tickets</a>
+        <a href="events.html" class="btn-outline">Seguir comprando</a>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer"><div class="container">© 2025 ConciertosAhora</div></footer>
-
   <script>
     const btn = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
     btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
+    function getStorage(k){ try{ return JSON.parse(localStorage.getItem(k)||'null'); }catch(e){ return null; } }
+    (function(){
+      const orders = getStorage('orders') || [];
+      const last = orders[orders.length-1];
+      if(!last){ return; }
+      const evId = (last.items[0]||{}).eventId;
+      document.getElementById('oc-order').textContent = last.id;
+      document.getElementById('oc-invoice').textContent = last.invoiceNumber || '-';
+      document.getElementById('oc-event').textContent = evId;
+      document.getElementById('oc-zone').textContent = (last.items[0]||{}).zoneId || '-';
+      document.getElementById('oc-qty').textContent = (last.items[0]||{}).qty || 0;
+      document.getElementById('oc-total').textContent = `$ ${Number(last.total||0).toFixed(2)}`;
+    })();
   </script>
 </body>
 </html>
