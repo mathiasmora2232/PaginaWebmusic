@@ -8,7 +8,7 @@
     "city": "Quito",
     "priceFrom": 18,
     "thumbImage": "img/paulo_banner.jpg",
-    "thumbClass": "thumb-pop",
+    "seatMapImage": "img/paulo_asientos.jpg",
     "genres": ["Trap ", "Pop Urbano"],
     "description": "El regreso más esperado! Paulo Londra vuelve con toda su potencia a los escenarios de Quito. Combinando la fuerza del trap argentino con un pop moderno, el show está diseñado con un gran despliegue escénico y coreografías para reconectar con su público joven. Prepárense para una fiesta de rimas y energía inolvidable.",
     "ticketsLink": "#"
@@ -22,7 +22,7 @@
     "city": "Guayaquil",
     "priceFrom": 55,
     "thumbImage": "img/ricardo_banner.jpg",
-    "thumbClass": "thumb-romantica",
+    "seatMapImage": "img/ricardo_asientos.jpg",
     "genres": ["Balada Romántica"],
     "description": "Un tour imperdible y emotivo. Ricardo Montaner presenta El Último Regreso Tour, una celebración de su inmensa trayectoria. Prepárate para corear sus baladas más icónicas y vivir una noche inolvidable en un ambiente íntimo y cargado de sentimiento.",
     "ticketsLink": "#"
@@ -36,7 +36,7 @@
     "city": "Quito",
     "priceFrom": 40,
     "thumbImage": "img/danny_banner.jpg",
-    "thumbClass": "thumb-urbano",
+    "seatMapImage": "img/danny_asientos.jpg",
     "genres": ["Pop Latino"],
     "description": "Una noche de good vibes y ritmos tropicales en el corazón de Quito. Danny Ocean presenta su tour más íntimo y lleno de energía, interpretando himnos como Me Rehúso y Fuera del Mercado. Un concierto fresco, romántico y relajado, ideal para bailar y corear sus melodías más pegadizas.",
     "ticketsLink": "#"
@@ -50,7 +50,7 @@
     "city": "Guayaquil",
     "priceFrom": 30,
     "thumbImage": "img/duki_banner.jpg",
-    "thumbClass": "thumb-trap",
+    "seatMapImage": "img/duki_asientos.jpg",
     "genres": ["Música Urbana"],
     "description": "El referente global del trap, Duki, llega con un despliegue masivo en el Estadio Modelo. Este espectáculo cuenta con visuales intensas, pirotecnia y beats potentes que recorrerán toda su discografía, desde los inicios hasta sus éxitos más recientes. Una cita imperdible para los amantes del freestyle y el flow más puro.",
     "ticketsLink": "#"
@@ -64,7 +64,7 @@
     "city": "Quito",
     "priceFrom": 39,
     "thumbImage": "img/myriam_banner.jpg",
-    "thumbClass": "thumb-balada",
+    "seatMapImage": "img/myriam_asientos.jpg",
     "genres": ["Balada Romántica"],
     "description": "La Baladista de América regresa a los escenarios con su tour más íntimo y poderoso. Un espectáculo que celebra su carrera con sus grandes éxitos inmortales y las nuevas canciones que demuestran por qué sigue siendo una figura invencible de la música latina. Ideal para una velada romántica y nostálgica.",
     "ticketsLink": "#"
@@ -78,7 +78,7 @@
     "city": "Medellin",
     "priceFrom": 100,
     "thumbImage": "img/bad-bunny.jpg",
-    "thumbClass": "thumb-electronova",
+    "seatMapImage": "img/bunny_asientos.jpg",
     "genres": ["Reggeton"],
     "coords": {"lat":-2.1695, "lng":-79.8987, "zoom": 15},
     "description": "Exploración de nuevos sonidos digitales y performance visual.",
