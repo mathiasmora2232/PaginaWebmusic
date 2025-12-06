@@ -87,6 +87,16 @@ body {
   border-radius: 8px;
   color: #d9e6f2;
   text-decoration: none;
+  background: transparent; /* evita fondo blanco por estilos del navegador */
+}
+
+.btn-outline:hover { background: rgba(255,255,255,0.06); }
+.btn-outline:active { background: rgba(255,255,255,0.1); }
+
+button.btn, button.btn-outline { 
+  -webkit-appearance: none; 
+  appearance: none; 
+  border: inherit; 
 }
 
 .btn-small {

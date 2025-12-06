@@ -30,3 +30,39 @@
     border-radius: 12px; 
     padding: 16px;
 }
+/* Utilities */
+.mt-10{ margin-top:10px }
+.mt-12{ margin-top:12px }
+
+/* Form styling */
+.summary label{ display:flex; flex-direction:column; gap:6px; margin-top:10px }
+.summary input, .summary select{ background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); color:#e6eef6; border-radius:8px; padding:10px; height:40px }
+.summary select{
+    -webkit-appearance: none;
+    appearance: none;
+    color-scheme: dark;
+    padding-right: 36px; /* espacio para flecha */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239aa4b2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+.summary select option{ background: var(--card); color:#e6eef6; }
+.summary select::-ms-expand{ display:none; }
+.summary input:focus, .summary select:focus{ outline:none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,107,107,0.18) }
+.form-grid{ display:grid; grid-template-columns:1fr; gap:8px }
+.row{ display:grid; grid-template-columns:1fr 1fr; gap:8px }
+.qty-stepper{ display:inline-flex; align-items:center; gap:8px; background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:4px }
+.qty-stepper .qty{ min-width:24px; text-align:center; font-weight:700 }
+/* Botones del stepper con fondo transparente, sin blanco del sistema */
+.qty-stepper button.btn-outline{ 
+    background: transparent; 
+    color:#e6eef6; 
+    border-color: rgba(255,255,255,0.18);
+    width:32px; height:32px; 
+    display:inline-flex; align-items:center; justify-content:center; 
+    border-radius:999px; 
+}
+.qty-stepper button.btn-outline:hover{ background: rgba(255,255,255,0.06); }
+.qty-stepper button.btn-outline:active{ background: rgba(255,255,255,0.1); }
+@media (max-width:640px){ .row{ grid-template-columns:1fr } }
