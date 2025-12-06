@@ -1,0 +1,22 @@
+Obtención de eventos
+
+- Los eventos se cargan desde el archivo data/events.json mediante peticiones fetch en el navegador.
+- Para evitar bloqueos del navegador al leer archivos locales, abre el proyecto con un servidor local.
+
+Opciones recomendadas
+
+1) VS Code + extensión "Live Server"
+   - Instala la extensión Live Server.
+   - Abre la carpeta del proyecto en VS Code.
+   - Clic derecho sobre index.html → "Open with Live Server".
+   - Accede a la URL http://127.0.0.1:5500 (o similar) que abre la extensión.
+
+2) XAMPP (o cualquier servidor HTTP)
+   - Copia la carpeta del proyecto dentro de la carpeta htdocs de XAMPP.
+   - Inicia Apache.
+   - Accede por el navegador a http://localhost/NombreDeTuCarpeta.
+
+Notas
+- No se requiere base de datos para visualizar los eventos del JSON.
+- Algunos módulos usan LocalStorage para simular órdenes y tickets.
+- Si realizas cambios en data/events.json, recarga la página para verlos.
