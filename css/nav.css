@@ -117,8 +117,40 @@ button.btn, button.btn-outline {
 
 /* =Responsive */
 @media (max-width: 640px) {
+  /* Esconde la nav por defecto en móvil */
   .nav { display: none; }
   .menu-toggle { display: block; }
+  
+  /* Nav abierta en móvil como panel superpuesto */
+  .nav.open {
+    position: fixed;
+    top: 64px; /* altura aproximada del header */
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px 24px;
+    background: rgba(15,23,36,0.97);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav.open a {
+    padding: 12px 14px; /* objetivos táctiles más grandes */
+    width: 100%;
+  }
+
+  /* Asegura que el body deje espacio para el header en pantallas pequeñas */
+  body { padding-top: 64px; }
 }
+
+/* Mejora de accesibilidad al abrir/cerrar menú */
+.menu-toggle:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Transición sutil para el panel */
+.nav,
+.nav.open { transition: all 0.2s ease-in-out; }
 
 

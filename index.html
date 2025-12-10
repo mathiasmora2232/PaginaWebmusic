@@ -18,6 +18,7 @@
         <a href="create-event.html" class="btn">Crear evento</a>
         <a href="account.html" class="btn-outline">Mi cuenta</a>
         <a href="tickets.html" class="btn-outline">Mis tickets</a>
+        <a href="landingpage/index.html" class="btn-outline">landingpage</a>
       </nav>
       <button class="menu-toggle" aria-label="Abrir menú">☰</button>
     </div>
@@ -170,6 +171,7 @@
         <a href="#">Términos</a>
         <a href="#">Privacidad</a>
         <a href="#">Contacto</a>
+        <a href="#">Hecho por mathias mora</a>
       </div>
     </div>
   </footer>
@@ -178,7 +180,21 @@
     // Toggle simple menu (mobile)
     const btn = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
-    btn && btn.addEventListener('click', ()=> nav.classList.toggle('open'));
+    if (btn && nav) {
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', ()=> {
+        const isOpen = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      });
+      // Cerrar menú al seleccionar una opción en móvil
+      nav.addEventListener('click', (e)=>{
+        const target = e.target;
+        if (target && target.tagName === 'A' && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
 
     // Contadores animados para stats (aparecen al hacer scroll)
     const stats = document.querySelectorAll('.stat-card');
